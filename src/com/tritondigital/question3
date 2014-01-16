@@ -1,0 +1,10 @@
+<bean id="myTestBean" class="com.stw.core.person.Person" scope="prototype" factory-method="createNew" depends-on="dataSource">
+<property name="firstName" value="${first.name}"/>
+<property name="phone" ref="phone"/>
+</bean>
+
+
+
+Define the Bean for Insert firstname and phone for the class com.stw.core.person.Person
+Control order of bean init-method by define depends-on= "dataSource". For the relatively infrequent situations where dependencies between beans are less direct (for example, when a static initializer in a class needs to be triggered, such as database driver registration), the 'depends-on' attribute may be used to explicitly force one or more beans to be initialized before the bean using this element is initialized.
+Scopes a single bean definition to any number of object instances with the factory-method createNew.
